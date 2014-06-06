@@ -1,0 +1,223 @@
+%
+%  Nature Neuroscience Template - Root Document File
+%
+%  Author: Joe Monaco <jmonaco@jhu.edu> 
+%  Created: Jan 23, 2011.
+%  Last updated: May 22, 2014.
+%
+%  Copyright (c) 2011-2014 Johns Hopkins University. All rights reserved.
+%
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amssymb,amsmath}
+\usepackage{sectsty}
+\usepackage{fullpage}
+\usepackage[pagewise]{lineno}
+% \usepackage{showframe} % to show page margins
+
+% Nature-specific formatting packages
+\usepackage[nospace]{cite}
+\usepackage{citesupernumber}
+\usepackage{nature}
+\usepackage{naturefem}
+
+% Customizing captions and float behavior
+\usepackage[format=plain,labelformat=empty,font=small]{caption}
+\usepackage{placeins}
+
+% For creating nice looking tables
+\usepackage{booktabs}
+\usepackage{multirow}
+
+% Choose your font: uncomment one of the below font packages or add your own
+% \usepackage{pslatex} % for TNR
+\usepackage{palatino} % for Palatino
+% \usepackage{fontspec} % forces XeLaTeX engine, use \setmainfont (etc) below
+% \setmainfont[Mapping=tex-text,Ligatures=TeX]{Adobe Caslon Pro} % choose any system font
+% \setmainfont[Mapping=tex-text]{Hoefler Text} % ...such as Hoefler Text
+
+% Set the manuscript title(s): full title is in titletext.tex and a shorter (4-5
+% words) running title can also be provided below
+\renewcommand{\title}{\input{titletext}}
+\newcommand{\runningtitle}{Lorem Ipsum Dolor}
+
+% Define the author lists, affiliations, and corresponding author information
+\newcommand{\authorlistplain}{
+  First~Author, Second~Author, Corresponding~Author
+}
+\newcommand{\authorlistannotated}{
+  First~Author$^{1}$, 
+  Second~Author$^{2}$, 
+  Corresponding~Author$^{3\ast}$
+}
+\newcommand{\authoraffiliations}{
+  $^1$Lorem Ipsum Institute, 
+      Dolor University,
+      Springfield, MO, USA; \\
+  $^2$Biomedical Engineering Dept.,
+      Lectus University,
+      Springfield, MA, USA; \\
+  $^3$Dept. of Neuroscience, 
+      Adipiscing Elit University,
+      Springfield, MI, USA; \\
+}
+\newcommand{\correspondinglastname}{Author}
+\newcommand{\correspondingaddress}{
+  Dr. Corresponding Author \\
+  Adipiscing Elit University \\
+  Department of Neuroscience \\
+  Springfield, MI 54545, USA \\ 
+  cauthor@adi.edu \\
+}
+
+% To render a selective list of manuscript sections, provide an \includeonly command 
+% with a comma-separated list of sections to include. (Comment out all \includeonly 
+% commands to render everything.) The available sections are any of the \include'd 
+% files in the document: title, abstract, text, endnotes, legends, methods, references,
+% figures, supp/legends, supp/guide, supp/figures, and supp/tables.
+%
+% Some precooked \includeonly statements:
+% \includeonly{text,references}
+% \includeonly{legends,figures}
+% \includeonly{methods}
+% \includeonly{supp/guide}
+% \includeonly{supp/figures,supp/tables}
+
+% To exclude the main figures from the manuscript file, uncomment this line:
+% \def \excludefigures {}
+
+% Annotation and inline comment command(s): change the author=XXX parameters and add
+% extra commands for additional authors to comment. Add `disable' to the package
+% parameters to turn off all annotations
+\usepackage[disable,shadow,linecolor=black,textsize=small]{todonotes}
+\newcommand{\note}[1]{\todo[author=JDM,color=orange!40,linecolor=black]{#1}}
+\newcommand{\comment}[1]{\todo[inline,author=JDM,color=orange!40,linecolor=black]{#1}}
+% \newcommand{\xyznote}[1]{\todo[author=XYZ,color=green!30,linecolor=black]{#1}}
+
+% Set case of figure panel labels
+\newcommand{\panelcase}{\lowercase}
+% \newcommand{\panelcase}{\uppercase}
+
+% Reference commands - Figures (call like \[t]*fig{<key>}{<panel_string>} or
+% \*figs{<key1>}{<key2>})
+\newcommand{\fig}[2]{Fig.~\ref{fig:#1}\panelcase{#2}}
+\newcommand{\figs}[2]{Figs.~\ref{fig:#1} and \ref{fig:#2}}
+\newcommand{\tfig}[2]{Figure~\ref{fig:#1}\panelcase{#2}}
+% Supplementary figures
+\newcommand{\suppfig}[2]{Supplementary Fig.~\ref{suppfig:#1}\panelcase{#2}}
+\newcommand{\suppfigs}[2]{Supplementary Figs.~\ref{suppfig:#1} and \ref{suppfig:#2}}
+\newcommand{\tsuppfig}[2]{Supplementary Figure~\ref{suppfig:#1}\panelcase{#2}}
+% Supplementary tables
+\newcommand{\supptable}[1]{Supplementary Table~\ref{tab:#1}}
+% Equations
+\newcommand{\eqn}[1]{equation~(\ref{eq:#1})}
+\newcommand{\eqns}[2]{equations~(\ref{eq:#1}) and (\ref{eq:#2})}
+
+% Figure and caption display commands:
+% NOTE: Main figures should live at ./figures/Figures_<name>.png and
+% supplementary figures should live at ./figures/SuppFigures_<name>.png.
+% Then use the above reference commands with <name> as the figure key.
+% Figure images should be single-column (89mm) or double-column (183mm) wide.
+\newcommand{\panel}[1]{\panelcase{\textbf{#1}}}
+\newcommand{\customfigure}[4]{
+  \begin{figure}[hp]
+    \centering
+    \includegraphics[scale=1]{figures/#1Figures_#3.png}
+    \caption{#4\label{#2fig:#3}}
+  \end{figure}
+  \vfill
+  \clearpage
+}
+\newcommand{\mainfigure}[1]{
+  \customfigure{}{}{#1}{\textbf{\tfig{#1}{}}}
+}
+\newcommand{\maincaption}[3]{
+  {\bf\tfig{#1}{}} $|$ \textbf{#2.} #3
+}
+\newcommand{\suppcaption}[3]{
+	{\bf\tsuppfig{#1}{} $|$} \textbf{#2.} #3
+}
+\newcommand{\suppfigurewithcaption}[3]{
+  \customfigure{Supp}{supp}{#1}{\suppcaption{#1}{#2}{#3}}
+}
+
+% Set formatting for section headings
+\allsectionsfont{\bfseries}
+\sectionfont{\centering\Large}
+\subsectionfont{\large}
+\paragraphfont{\hspace*{1.5em}}
+
+% Paragraph and line spacing
+\setlength{\baselineskip}{1.85em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4ex plus 1ex minus 0.4ex}
+\frenchspacing
+\raggedright
+
+% Page setup: margins, footers, etc.
+\setlength{\hoffset}{0pt}
+\setlength{\textwidth}{6.5in}
+\setlength{\topmargin}{0pt}
+\setlength{\headheight}{0pt}
+\setlength{\headsep}{0pt}
+\setlength{\voffset}{0pt}
+\setlength{\footskip}{5ex}
+\setlength{\textheight}{9in}
+
+% Comment this line to enable line numbering
+\renewcommand{\linenumbers}{{}}
+
+% Maximize orphan/widow penalties
+\widowpenalty=10000
+\clubpenalty=10000
+
+\begin{document}
+
+  \include{title}
+
+  \setlength{\baselineskip}{2.6em}
+  
+  {
+    \linenumbers
+    \thispagestyle{empty}
+    \include{abstract}
+  }
+
+  {
+    \setcounter{page}{3}
+    \linenumbers
+    \include{text}
+    \include{endnotes}
+    \include{legends}
+    \include{methods}
+  }
+
+  {
+    \setlength{\baselineskip}{1.8em}
+    \include{references}
+  }
+  
+  \ifx\excludefigures\undefined
+    {
+      \pagestyle{empty}
+      \addtolength{\hoffset}{-9mm}
+      \addtolength{\textwidth}{18mm}
+      \include{figures}
+    }
+  \fi
+
+  % Include supplementary figure captions at end of main manuscript file for
+  % final submission  
+  \include{supp/legends}
+
+  % Set up the supplementary info
+  \pagebreak
+  \setcounter{page}{1}
+  \setcounter{figure}{0}  
+  \include{supp/guide}
+  \include{supp/figures}
+  \include{supp/tables}
+
+\end{document}

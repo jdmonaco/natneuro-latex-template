@@ -1,0 +1,12 @@
+*.ai
+*.pdf
+*.png
+*.bbl
+*.aux
+*.blg
+*.fff
+*.lof
+*.log
+*sync*
+*.ttt
+.DS_Store
