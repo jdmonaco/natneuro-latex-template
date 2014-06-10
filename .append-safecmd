@@ -1,0 +1,14 @@
+#
+# Add "safe" commands for matching by latexdiff
+#
+panel
+maincaption
+suppcaption
+suppfigurewithcaption
+fig
+figs
+tfig
+suppfig
+suppfigs
+tsuppfig
+supptabl
