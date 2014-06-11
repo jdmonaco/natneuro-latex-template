@@ -3,12 +3,24 @@
 #
 
 PID = `pgrep -f autotexify`
+MAIN = main
+VIEWER = /Applications/Skim.app
+TEXIFY_INCL = --include="figures/Figures_*.png" --include="figures/SuppFigures_*.png"
+
+build: clean
+	pdflatex -interaction=batchmode $(MAIN)
+	bibtex -terse $(MAIN)
+	pdflatex -interaction=batchmode $(MAIN)
+	pdflatex -interaction=batchmode $(MAIN)
+
+view:
+	open $(MAIN).pdf -a $(VIEWER)
 
 texify:
-	autotexify &
+	autotexify $(TEXIFY_INCL) &
 
 terminal:
-	autotexify --nonotify --viewer=none --nosync &
+	autotexify $(TEXIFY_INCL) --nonotify --viewer=none --nosync &
 
 isrunning:
 	[ -z $(PID) ] && echo 'not running' || echo 'running: pid' $(PID)
@@ -24,4 +36,4 @@ stop:
 #
 
 clean:
-	-rm *.{aux,log,bbl,blg,synctex.gz} */*.aux > /dev/null 2>&1
+	-rm *.{aux,log,bbl,blg,fls,fdb_latexmk,synctex.gz} */*.aux > /dev/null 2>&1
