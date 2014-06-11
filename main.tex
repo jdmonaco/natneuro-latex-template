@@ -103,7 +103,8 @@
 % \newcommand{\panelcase}{\uppercase}
 
 % Reference commands - Figures (call like \[t]*fig{<key>}{<panel_string>} or
-% \*figs{<key1>}{<key2>})
+% \*figs{<key1>}{<key2>}). Keys reference figures based on figures/Figures_<key>.png 
+% image files that are brought in via \mainfigure commands in figures.tex.
 \newcommand{\fig}[2]{Fig.~\ref{fig:#1}\panelcase{#2}}
 \newcommand{\figs}[2]{Figs.~\ref{fig:#1} and \ref{fig:#2}}
 \newcommand{\tfig}[2]{Figure~\ref{fig:#1}\panelcase{#2}}
@@ -152,7 +153,6 @@
 \paragraphfont{\hspace*{1.5em}}
 
 % Paragraph and line spacing
-\setlength{\baselineskip}{1.85em}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{4ex plus 1ex minus 0.4ex}
 \frenchspacing
