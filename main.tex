@@ -3,7 +3,7 @@
 %
 %  Author: Joe Monaco <jmonaco@jhu.edu> 
 %  Created: Jan 23, 2011.
-%  Last updated: May 22, 2014.
+%  Last updated: June 10, 2014.
 %
 %  Copyright (c) 2011-2014 Johns Hopkins University. All rights reserved.
 %
@@ -12,6 +12,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{amssymb,amsmath}
+\usepackage{lipsum}
 \usepackage{sectsty}
 \usepackage{fullpage}
 \usepackage[pagewise]{lineno}
@@ -71,6 +72,20 @@
   Springfield, MI 54545, USA \\ 
   cauthor@adi.edu \\
 }
+
+% To render a selective list of manuscript sections, provide an includeonly command 
+% with a comma-separated list of sections to include. (Comment out all includeonly 
+% commands to render everything.) The available sections are any of the included 
+% files in the document: title, abstract, text, endnotes, legends, methods, references,
+% figures, supp/legends, supp/guide, supp/figures, and supp/tables. Note that the
+% presence of includeonly screws up latexdiff even when commented out, which is why
+% the command names are obfuscated (and the stars should be removed when uncommenting.)
+%
+% \incl***udeonly{text,references}
+% \incl***udeonly{legends,figures}
+% \incl***udeonly{methods}
+% \incl***udeonly{supp/guide}
+% \incl***udeonly{supp/figures,supp/tables}
 
 % To exclude the main figures from the manuscript file, uncomment this line:
 % \def \excludefigures {}
