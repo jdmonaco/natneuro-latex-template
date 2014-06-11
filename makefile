@@ -11,7 +11,7 @@ build: clean
 	pdflatex -interaction=batchmode $(MAIN)
 	bibtex -terse $(MAIN)
 	pdflatex -interaction=batchmode $(MAIN)
-	pdflatex -interaction=batchmode $(MAIN)
+	pdflatex -interaction=batchmode -synctex=1 $(MAIN)
 
 view:
 	open $(MAIN).pdf -a $(VIEWER)
