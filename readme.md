@@ -13,11 +13,11 @@ making the figures appear correctly at scale, and handling citations correctly a
 One of the goals here was a modular document, so most of the content is contained in `\include`'d files. You can change
 what gets rendered using the `\includeonly` command in the preamble, and I have a bunch of precooked ones there already
 (but commented out). (An unfortunate quirk I found is that `latexdiff` looks for `\includeonly` commands but doesn't
-recognize if they are commented out, so I also obfuscated them by inserting asterisks.) I have a script for compiling
-diffs between git revisions (still to be uploaded) using `latexdiff`, but a current version of `latexdiff` is necessary
-to allow recursive `\include`s. Note that `makefile` has targets referring to a tool called `autotexify` which is not
-available yet but should be soon; it's essentially my version of `latexmk.pl -pvc`. Figures are currently assumed to be
-PNG images named `figures/Figures_<key>.png` or `figures/SuppFigures_<key>.png`.
+recognize if they are commented out, so I also obfuscated them by inserting asterisks.) I have a script
+([git-ldiff.sh](https://github.com/jdmonaco/git-latexdiff-wrapper)) for compiling diffs between git revisions using `latexdiff`, but a current version of `latexdiff` is necessary to allow recursive `\include`s. Note
+that `makefile` has targets referring to a tool called `autotexify` which is not available yet but should be soon; it's
+essentially my version of `latexmk.pl -pvc`. Figures are currently assumed to be PNG images named
+`figures/Figures_<key>.png` or `figures/SuppFigures_<key>.png`.
 
 ### More to come...
 
