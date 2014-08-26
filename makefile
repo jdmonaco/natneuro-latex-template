@@ -2,9 +2,8 @@
 # Example makefile for working with AutoTeXify in a LaTeX document
 #
 
-PID = `pgrep -f autotexify`
 MAIN = main
-VIEWER = /Applications/Skim.app
+VIEWER = skim
 TEXIFY_INCL = --include="figures/Figures_*.png" --include="figures/SuppFigures_*.png"
 
 build: clean
@@ -23,7 +22,7 @@ terminal:
 	autotexify $(TEXIFY_INCL) --nonotify --viewer=none --nosync &
 
 isrunning:
-	[ -z $(PID) ] && echo 'not running' || echo 'running: pid' $(PID)
+	[ -z `pgrep -f autotexify` ] && echo 'not running' || echo running: pid `pgrep -f autotexify`
 
 stop:
 	pkill -TERM -f autotexify
