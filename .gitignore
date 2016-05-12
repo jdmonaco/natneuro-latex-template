@@ -3,6 +3,7 @@
 *.eps
 *.tif
 *.aux
+*.out
 *.bbl
 *.aux
 *.blg

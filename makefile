@@ -35,4 +35,4 @@ stop:
 #
 
 clean:
-	-rm *.{aux,log,bbl,blg,fls,fdb_latexmk,synctex.gz} */*.aux > /dev/null 2>&1
+	-rm *.{aux,out,log,bbl,blg,fls,fdb_latexmk,synctex.gz} */*.aux > /dev/null 2>&1
