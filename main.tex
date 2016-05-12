@@ -1,7 +1,7 @@
 %
 %  Nature Neuroscience Template - Root Document File
 %
-%  Author: Joe Monaco <jmonaco@jhu.edu> 
+%  Author: Joe Monaco <jmonaco@jhu.edu>
 %  Created: Jan 23, 2011.
 %  Last updated: September 25, 2015.
 %
@@ -51,18 +51,18 @@
   First~Author, Second~Author, Corresponding~Author
 }
 \newcommand{\authorlistannotated}{
-  First~Author$^{1}$, 
-  Second~Author$^{2}$, 
+  First~Author$^{1}$,
+  Second~Author$^{2}$,
   Corresponding~Author$^{3\ast}$
 }
 \newcommand{\authoraffiliations}{
-  $^1$Lorem Ipsum Institute, 
+  $^1$Lorem Ipsum Institute,
       Dolor University,
       Springfield, MO, USA; \\
   $^2$Biomedical Engineering Dept.,
       Lectus University,
       Springfield, MA, USA; \\
-  $^3$Dept. of Neuroscience, 
+  $^3$Dept. of Neuroscience,
       Adipiscing Elit University,
       Springfield, MI, USA; \\
 }
@@ -71,19 +71,19 @@
   Dr. Corresponding Author \\
   Adipiscing Elit University \\
   Department of Neuroscience \\
-  Springfield, MI 54545, USA \\ 
+  Springfield, MI 54545, USA \\
   cauthor@adi.edu \\
 }
 
-% To render a selective list of manuscript sections, provide an includeonly command 
-% with a comma-separated list of sections to include. (Comment out all includeonly 
-% commands to render everything.) The available sections are any of the included 
-% files in the document: title, abstract, text, endnotes, legends, methods, 
+% To render a selective list of manuscript sections, provide an includeonly command
+% with a comma-separated list of sections to include. (Comment out all includeonly
+% commands to render everything.) The available sections are any of the included
+% files in the document: title, abstract, text, endnotes, legends, methods, references,
 % figures, supp/legends, supp/guide, supp/figures, and supp/tables. Note that the
 % presence of includeonly screws up latexdiff even when commented out, which is why
 % the command names are obfuscated (and the stars should be removed when uncommenting.)
 %
-% \incl***udeonly{text}
+% \incl***udeonly{text,references}
 % \incl***udeonly{legends,figures}
 % \incl***udeonly{methods}
 % \incl***udeonly{supp/guide}
@@ -91,9 +91,6 @@
 
 % To exclude the main figures from the manuscript file, uncomment this line:
 % \def \excludefigures {}
-
-% To exclude the references from the manuscript file, uncomment this line:
-% \def \excluderefs {}
 
 % Annotation and inline comment command(s): change the author=XXX parameters and add
 % extra commands for additional authors to comment. Add `disable' to the package
@@ -108,7 +105,7 @@
 % \newcommand{\panelcase}{\uppercase}
 
 % Reference commands - Figures (call like \[t]*fig{<key>}{<panel_string>} or
-% \*figs{<key1>}{<key2>}). Keys reference figures based on figures/Figures_<key>.png 
+% \*figs{<key1>}{<key2>}). Keys reference figures based on figures/Figures_<key>.png
 % image files that are brought in via \mainfigure commands in figures.tex.
 \newcommand{\fig}[2]{Fig.~\ref{fig:#1}\panelcase{#2}}
 \newcommand{\figs}[2]{Figs.~\ref{fig:#1} and \ref{fig:#2}}
@@ -185,7 +182,7 @@
   \include{title}
 
   \setlength{\baselineskip}{2.6em}
-  
+
   {
     \linenumbers
     \thispagestyle{empty}
@@ -201,14 +198,11 @@
     \include{methods}
   }
 
-  \ifx\excluderefs\undefined
-    {
-      \setlength{\baselineskip}{1.8em}
-      \bibliographystyle{nature}
-      \bibliography{./minimal}
-    }
-  \fi
-  
+  {
+    \setlength{\baselineskip}{1.8em}
+    \include{references}
+  }
+
   \ifx\excludefigures\undefined
     {
       \pagestyle{empty}
@@ -219,13 +213,13 @@
   \fi
 
   % Include supplementary figure captions at end of main manuscript file for
-  % final submission  
+  % final submission
   \include{supp/legends}
 
   % Set up the supplementary info
   \pagebreak
   \setcounter{page}{1}
-  \setcounter{figure}{0}  
+  \setcounter{figure}{0}
   \include{supp/guide}
   \include{supp/figures}
   \include{supp/tables}
